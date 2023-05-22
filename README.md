@@ -41,3 +41,7 @@ Contributions are welcome! If you have any ideas, suggestions, or bug fixes, ple
 ## License
 
 PowerPass is released under the [GNU General Public License v3.0 (GPL-3.0)](LICENSE).
+
+## Future Update Information
+
+During future updates i am planning to release a desktop client version which doesn't require you to download a html file, it will be built with electron and can be used with Windows, i will plan for future releases after that to be supported with MacOS and Linux.
