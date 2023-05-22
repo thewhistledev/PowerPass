@@ -1,3 +1,5 @@
+![](https://i.imgur.com/3lE8wmg.png)
+
 # PowerPass - Secure Password Generator
 
 PowerPass is an open-source secure password generator that allows users to generate strong and unique passwords based on the Microsoft strong password guidelines. The application is built using HTML, CSS, and JavaScript, providing a user-friendly and modern interface.
@@ -39,3 +41,7 @@ Contributions are welcome! If you have any ideas, suggestions, or bug fixes, ple
 ## License
 
 PowerPass is released under the [GNU General Public License v3.0 (GPL-3.0)](LICENSE).
+
+## Future Update Information
+
+During future updates i am planning to release a desktop client version which doesn't require you to download a html file, it will be built with electron and can be used with Windows, i will plan for future releases after that to be supported with MacOS and Linux.
