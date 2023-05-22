@@ -20,7 +20,7 @@ PowerPass is an open-source secure password generator that allows users to gener
 4. Save the `index.html` file.
 5. Open the modified `index.html` file in your web browser.
 6. Click the "Generate" button to generate a strong password.
-7. Copy the generated password to the clipboard using the provided copy button.
+7. The generated password is copied to the clipboard automatically.
 8. Use the password in your desired application or system.
 
 ## Installation
