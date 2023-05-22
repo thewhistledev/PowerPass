@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PowerPass - Secure Password Generator</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    body {
+      background-color: #414558;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow-x: hidden; /* Hide horizontal overflow */
+      overflow: hidden;
+    }
+    
+    .container {
+      max-width: 400px;
+      padding: 20px;
+      background-color: #282a36;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    .powerpass {
+      font-size: 30px;
+      text-align: center;
+      margin: 20px 0;
+      overflow-x: hidden;
+    }
+    
+    .input-wrapper {
+      width: 80%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    
+    .password-input {
+      font-size: 20px;
+      text-align: center;
+      padding-right: 40px;
+      width: 100%;
+      border-radius: 5px;
+      border: 2px solid #bd93f9; /* Accent color for initial border */
+    }
+    
+    .password-input.weak {
+      border-color: red;
+    }
+    
+    .password-input.medium {
+      border-color: orange;
+    }
+    
+    .password-input.strong {
+      border-color: green;
+    }
+    
+    button {
+      background-color: #bd93f9;
+      color: #ffffff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      display: block;
+      margin-top: 20px;
+    }
+    
+    button:hover {
+      background-color: #ca9efa;
+    }
+  </style>
+</head>
+<body>
+<!--
+    PowerPass - Secure Password Generator
+    Author: WhistleDev
+    GitHub: https://github.com/thewhistledev
+    License: GPL-3.0
+    Copyright (C) 2023, WhistleDev. All rights reserved.
+
+    Attribution: 
+    When using this software/script you MUST provide attribution to the author shown above,
+    if you don't you violate the license included with this software/script and are
+    immediately unauthorised to use, reupload, retransmit, share or download the code included within this software/script.
+-->
+  <div class="container">
+    <div class="powerpass">PowerPass</div>
+    <div class="input-wrapper">
+      <input type="text" class="password-input" id="password" readonly>
+    </div>
+    <button onclick="generatePassword()">Generate Password</button>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+  <script>
+    function generatePassword() {
+      var length = 14; // Minimum length of 14 characters
+      
+      var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      var lowercase = "abcdefghijklmnopqrstuvwxyz";
+      var numbers = "0123456789";
+      var symbols = "!@#$%^&*()_+=-{}[]|:;<>?~/\\";
+      
+      var allChars = uppercase + lowercase + numbers + symbols;
+      
+      var password = "";
+      
+      // Generate a password that meets the Microsoft strong password guidelines
+      while (password.length < length || !containsRequiredCharacters(password)) {
+        password = generateRandomPassword(length, allChars);
+      }
+      
+      // Display the generated password
+      var passwordInput = document.getElementById("password");
+      passwordInput.value = password;
+      
+      // Determine password strength and apply corresponding CSS class
+      passwordInput.classList.remove("weak", "medium", "strong");
+      if (password.length < 12) {
+        passwordInput.classList.add("weak");
+      } else if (password.length < 14) {
+        passwordInput.classList.add("medium");
+      } else {
+        passwordInput.classList.add("strong");
+      }
+      
+      // Copy the generated password to the clipboard
+      copyToClipboard(passwordInput);
+    }
+    
+    function generateRandomPassword(length, characters) {
+      var password = "";
+      
+      for (var i = 0; i < length; i++) {
+        var randomIndex = Math.floor(Math.random() * characters.length);
+        password += characters.charAt(randomIndex);
+      }
+      
+      return password;
+    }
+    
+    function containsRequiredCharacters(password) {
+      var containsUppercase = /[A-Z]/.test(password);
+      var containsLowercase = /[a-z]/.test(password);
+      var containsNumbers = /[0-9]/.test(password);
+      var containsSymbols = /[!@#$%^&*()_+=\-{}[\]|:;<>?~/\\]/.test(password);
+      
+      return containsUppercase && containsLowercase && containsNumbers && containsSymbols;
+    }
+    
+    function copyToClipboard(element) {
+      element.select();
+      document.execCommand("copy");
+      
+      // Remove focus from the input field after copying
+      element.blur();
+    }
+  </script>
+</body>
+</html>
