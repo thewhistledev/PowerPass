@@ -1,4 +1,4 @@
-![](https://i.imgur.com/tz9PNlM.png)
+![](https://i.imgur.com/3lE8wmg.png)
 
 # PowerPass - Secure Password Generator
 
