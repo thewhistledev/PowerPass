@@ -158,7 +158,7 @@
       var containsUppercase = /[A-Z]/.test(password);
       var containsLowercase = /[a-z]/.test(password);
       var containsNumbers = /[0-9]/.test(password);
-      var containsSymbols = /[!@#$%^&*()_+=\-{}[\]|:;<>?~/\\]/.test(password);
+      var containsSymbols = /[@!$%&*]/.test(password); //updated required characters to include common password requirements.
       
       return containsUppercase && containsLowercase && containsNumbers && containsSymbols;
     }
