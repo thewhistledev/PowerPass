@@ -42,6 +42,9 @@ Contributions are welcome! If you have any ideas, suggestions, or bug fixes, ple
 
 PowerPass is released under the [GNU General Public License v3.0 (GPL-3.0)](LICENSE).
 
-## Future Update Information
+## Updates:
 
-During future updates i am planning to release a desktop client version which doesn't require you to download a html file, it will be built with electron and can be used with Windows, i will plan for future releases after that to be supported with MacOS and Linux.
+- [x] Added Setup Binary for WINDOWS Platform.
+- [x] Converted HTML into an electron forge project.
+- [ ] Added Setup Binary for LINUX Platform.
+- [ ] Added Setup Binary for MACOS Platform.
